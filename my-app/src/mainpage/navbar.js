@@ -6,12 +6,12 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import IconButton from "@mui/material/IconButton";
-import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
-import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabledOutlined';
 
-import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
+import SearchIcon from "@mui/icons-material/Search";
+import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabledOutlined';
+import FavoriteIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 
 
 import sgFlag from "../images/Flag_of_Singapore.png";
@@ -31,6 +31,7 @@ const Navbar = (props) => {
             variant="outlined"
             placeholder="Search..."
             size="small"
+            
             style={{width: "100%",
                     height: "100px",
                     }}
@@ -42,13 +43,6 @@ const Navbar = (props) => {
         </form>
       );
 
-      const Item = styled(Paper)(({ theme }) => ({
-        backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-        ...theme.typography.body2,
-        padding: theme.spacing(1),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-      }));
 
     return (
         <>
@@ -169,203 +163,81 @@ const Navbar = (props) => {
         <AppBar style={{ background: '#FFFFFF' }} position="static">
         <Container maxWidth="xl">
             <Toolbar disableGutters>
-                <Grid container spacing={2} >
+                <Grid sx={{my: 1}} container spacing={2} >
                     <Grid item xs={3}>
                             <Box component="img" style={{width:200,height:60}} sx={{ display: { xs: 'none', md: 'flex' }}} src={eezeeLogo} />
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid item xs={7}>
                             <SearchBar/>
                     </Grid>
-                    <Grid item xs={3}>
-                        <Box component="img" style={{width:50,height:60}} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} src={eezeeLogo} />
+                    <Grid item xs={1}>
+                        <FavoriteIcon color="disabled" style={{width:50,height:60}} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
                         <Typography
-                        variant="h6"
-                        noWrap
-                        component="a"
-                        href="/"
-                        sx={{
-                        my: 2,
-                        mr: 5,
-                        display: { xs: 'none', md: 'flex' },
-                        color: 'black',
-                        textDecoration: 'none',
-                        }}
-                    >
-                        Favourites
-                    </Typography>
+                            variant="h6"
+                            noWrap
+                            component="a"
+                            href="/"
+                            sx={{
+                            my: 2,
+                            mr: 1,
+                            display: { xs: 'none', md: 'flex' },
+                            color: 'black',
+                            textDecoration: 'none',
+                            }}
+                        >
+                            Favourites
+                        </Typography>
                     </Grid>
-                    <Grid item xs={3}>
-                        <Box component="img" style={{width:50,height:60}} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} src={eezeeLogo} />
+                    <Grid item xs={1}>
+                        <ShoppingCartOutlinedIcon color="disabled" style={{width:50,height:60}} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
                         <Typography
-                        variant="h6"
-                        noWrap
-                        component="a"
-                        href="/"
-                        sx={{
-                        my: 2,
-                        mr: 5,
-                        display: { xs: 'none', md: 'flex' },
-                        color: 'black',
-                        textDecoration: 'none',
-                        }}
-                    >
-                        Carts
-                    </Typography>
+                            variant="h6"
+                            noWrap
+                            component="a"
+                            href="/"
+                            sx={{
+                            my: 2,
+                            mr: 1,
+                            display: { xs: 'none', md: 'flex' },
+                            color: 'black',
+                            textDecoration: 'none',
+                            }}
+                        >
+                            Carts
+                        </Typography>
                     </Grid>
-                    <Grid item xs={12}>
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="a"
-                        href="/"
-                        sx={{
-                        my: 2,
-                        mr: 5,
-                        display: { xs: 'none', md: 'flex' },
-                        color: 'black',
-                        textDecoration: 'none',
-                        }}
-                    >
-                        View All Categories
-                    </Typography>
-
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="a"
-                        href="/"
-                        sx={{
-                        my: 2,
-                        mr: 5,
-                        display: { xs: 'none', md: 'flex' },
-                        color: 'black',
-                        textDecoration: 'none',
-                        }}
-                    >
-                        View All Brands
-                    </Typography>
+                    <Grid item xs={2}>
+                        <Typography
+                            variant="h6"
+                            noWrap
+                            component="a"
+                            href="/"
+                            sx={{
+                            display: { xs: 'none', md: 'flex' },
+                            color: 'blue',
+                            textDecoration: 'none',
+                            }}
+                        >
+                            View All Categories
+                        </Typography>
                     </Grid>
-                    <Box sx={{ width: '100%' }}>
-                        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                        <Grid item xs={8}>
-                        <Item>1</Item>
-                        </Grid>
-                        <Grid item xs={4}>
-                        <Item>2</Item>
-                        </Grid>
-                        <Grid item xs={6}>
-                        <Item>3</Item>
-                        </Grid>
-                        <Grid item xs={6}>
-                        <Item>4</Item>
-                        </Grid>
-                        </Grid>
-                        </Box>
-                {/* <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
-                
-                <Typography
-                        variant="h6"
-                        noWrap
-                        component="a"
-                        href="/"
-                        sx={{
-                        my: 2,
-                        mr: 5,
-                        display: { xs: 'none', md: 'flex' },
-                        color: 'black',
-                        textDecoration: 'none',
-                        }}
-                    >
-                        Singapore
-                    </Typography>
-
-                    <PhoneEnabledIcon color="disabled" sx={{my: 2, mr: 1 , display: { xs: 'none', md: 'flex' } }} />
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="a"
-                        href="/"
-                        sx={{
-                        my: 2,
-                        mr: 2,
-                        display: { xs: 'none', md: 'flex' },
-                        color: 'black',
-                        textDecoration: 'none',
-                        }}
-                    >
-                        +65 6797 9688
-                    </Typography>
-                        
-                </Box>
-
-
-                <Box sx={{ flexGrow: 0 , display: { xs: 'none', md: 'flex' }}}>
-                <Typography
-                        variant="h6"
-                        noWrap
-                        component="a"
-                        href="/"
-                        sx={{
-                        my: 2,
-                        mr: 8,
-                        display: { xs: 'none', md: 'flex' },
-                        color: 'black',
-                        textDecoration: 'none',
-                        }}
-                    >
-                        Support Center
-                    </Typography>
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="a"
-                        href="/"
-                        sx={{
-                        my: 2,
-                        mr: 1,
-                        display: { xs: 'none', md: 'flex' },
-                        color: 'black',
-                        textDecoration: 'none',
-                        }}
-                    >
-                        Login
-                    </Typography>
-                    
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="a"
-                        href="/"
-                        sx={{
-                        my: 2,
-                        display: { xs: 'none', md: 'flex' },
-                        fontFamily: 'monospace',
-                        fontWeight: 700,
-                        letterSpacing: '.3rem',
-                        color: 'black',
-                        textDecoration: 'none',
-                        }}
-                    >
-                        |
-                    </Typography>
-
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="a"
-                        href="/"
-                        sx={{
-                        my: 2,
-                        mr: 5,
-                        display: { xs: 'none', md: 'flex' },
-                        color: 'black',
-                        textDecoration: 'none',
-                        }}
-                    >
-                        Register
-                    </Typography>
-                </Box> */}
+                    <Grid item xs={2} >
+                        <Typography
+                            variant="h6"
+                            noWrap
+                            component="a"
+                            href="/"
+                            sx={{
+                            display: { xs: 'none', md: 'flex' },
+                            color: 'blue',
+                            textDecoration: 'none',
+                            }}
+                        >
+                            View All Brands
+                        </Typography>
+                    </Grid>
                 </Grid>
+                
             </Toolbar>
         </Container>
         </AppBar>

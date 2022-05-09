@@ -3,6 +3,7 @@ import React, { useState} from "react";
 
 
 import { Navbar } from "./navbar";
+import Example from "./example"
 
 
 const Mainpage = (props) => {
@@ -13,8 +14,8 @@ const Mainpage = (props) => {
             <div className="App-Dash">
                     <Navbar  />
             </div>
-            <div className="content">
-
+            <div style={{backgroundColor:"#f0f0f0"}}>
+                <Example />
             </div>
         </div>
     );
