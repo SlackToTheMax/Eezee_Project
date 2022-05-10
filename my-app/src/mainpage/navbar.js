@@ -27,7 +27,7 @@ const Navbar = (props) => {
           <TextField
             id="search-bar"
             className="text"
-            label="Enter a city name"
+            label="Search Products Here"
             variant="outlined"
             placeholder="Search..."
             size="small"

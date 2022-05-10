@@ -3,7 +3,7 @@ import React, { useState} from "react";
 
 
 import { Navbar } from "./navbar";
-import Example from "./example"
+import { CarouselWidget } from "./carouselWidget"
 
 
 const Mainpage = (props) => {
@@ -12,10 +12,13 @@ const Mainpage = (props) => {
     return (
         <div className='wrapper' >
             <div className="App-Dash">
-                    <Navbar  />
+                <Navbar  />
             </div>
-            <div style={{backgroundColor:"#f0f0f0"}}>
-                <Example />
+            <div style={{backgroundColor:"#f0f0f0",
+                            minHeight: "100vh",
+                        }}>
+                <CarouselWidget />
+
             </div>
         </div>
     );
