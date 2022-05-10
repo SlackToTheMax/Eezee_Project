@@ -8,6 +8,7 @@ import Container from '@mui/material/Container';
 import IconButton from "@mui/material/IconButton";
 import TextField from "@mui/material/TextField";
 
+import Badge from '@mui/material/Badge';
 import SearchIcon from "@mui/icons-material/Search";
 import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabledOutlined';
 import FavoriteIcon from '@mui/icons-material/FavoriteBorderOutlined';
@@ -189,7 +190,10 @@ const Navbar = (props) => {
                         </Typography>
                     </Grid>
                     <Grid item xs={1}>
-                        <ShoppingCartOutlinedIcon color="disabled" style={{width:50,height:60}} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                        <Badge badgeContent={4} color="primary">
+                            <ShoppingCartOutlinedIcon color="disabled" style={{width:50,height:60}} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                        </Badge>
+                        
                         <Typography
                             variant="h6"
                             noWrap
