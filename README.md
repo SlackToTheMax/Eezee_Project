@@ -1,5 +1,7 @@
 # Eezee_Project
 Eezee Take Home Assignment:
 
-npm add
+npm install
+cd my-app
 npm run
+
