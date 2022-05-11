@@ -1,21 +1,22 @@
-import React from "react";
+import React, {useState} from "react";
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Carousel from "react-multi-carousel";
+import Button from "@mui/material/Button"
 
-import shoe from "../images/popular_products/shoe.png";
 import safetyLogo from "../images/safety_logo.png";
 
 
-import carousel1 from "../images/carousel.png";
-import carousel2 from "../images/carousel2.png";
-import carousel3 from "../images/carousel3.png";
-import carousel4 from "../images/carousel4.png";
+import shoe1 from "../images/shoe_product/shoe_1.png";
+import shoe2 from "../images/shoe_product/shoe_2.png";
+import shoe3 from "../images/shoe_product/shoe_3.png";
+import { fontWeight } from "@mui/system";
 
 const ViewProduct = (props) => {
 
-    const popularProducts = [carousel1,carousel2,carousel3]
+    const productShoe = [shoe1,shoe2,shoe3]
+    const [quantity, setQuantity] = useState(0)
 
     const responsive = {
         desktop: {
@@ -42,20 +43,23 @@ const ViewProduct = (props) => {
     };
 
     const CustomDot = ({ onMove, index, onClick, active }) => {
-        return (
-          <li
-            className={active ? "active" : "inactive"}
-            onClick={() => onClick()}
-          >
-            Hi
-          </li>
-        );
-      };
+      // onMove means if dragging or swiping in progress.
+      // active is provided by this lib for checking if the item is active or not.
+      return (
+        <li
+          style={{border: active ? "solid 1px blue" : "white"}}
+          onClick={() => onClick()}
+        >
+          <Box component="img" style={{width:"50%",height:"100%"}} src={productShoe[index]} />
+        </li>
+      );
+    };
       
 
     return(
         <Grid sx={{my: 10}} container>
-            <div  style={{ width:"50%",height:"50%", backgroundColor: 'White'}} sx={{ display: { mr: 2 } }}>
+          <Grid xs={6} container style={{ paddingRight:"5%"}}>
+            <div  style={{ width:"100%",height:"100%", backgroundColor: 'White'}} sx={{ display: { mr: 2 } }}>
                 <Typography
                     variant="h6"
                     sx={{
@@ -98,7 +102,7 @@ const ViewProduct = (props) => {
                                responsive={responsive}
                                additionalTransfrom={0}
                                arrows
-                               autoPlaySpeed={3000}
+                               shouldResetAutoplay={false}
                                centerMode={false}
                                className=""
                                dotListClass=""
@@ -116,47 +120,138 @@ const ViewProduct = (props) => {
                                swipeable
                                customDot={<CustomDot />}
                 >
-                    
-                    <div className="carousel-item active">
-              <img
-                className="d-block w-100"
-                src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
-                alt="First slide"
-              />
-            </div>
-            <div className="carousel-item active ">
-              <img
-                className="d-block w-100"
-                src="https://images.unsplash.com/photo-1587382559340-818aa5fc7a43?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
-                alt="Second slide"
-              />
-            </div>
+                {productShoe.map((product)=>{
+                   return (
+                  <div className="carousel-item active">
+                    <Box component="img" style={{width:"70%",height:"50%",}} sx={{ display: { xs: 'none', md: 'flex' },margin: 'auto',paddingTop: '10%'}} src={product} />
+                </div>
+                   )
+                })}
                 </Carousel>
-                <Box component="img" style={{width:"50%",height:"40%",}} sx={{ display: { xs: 'none', md: 'flex' },margin: 'auto',paddingTop: '10%'}} src={shoe} />
-                <Typography
-                    variant="h6"
-                    sx={{
-                        flexGrow: 1,
-                        my: 3,
-                        ml: 2,
-                        color: 'blue',
-                        fontWeight: 'bold',
-                        }}
-                    >
-                        <sup>S$</sup>
-                    </Typography>
+                <hr></hr>
+                <Grid sx={{my: 2}} container>
+                  <Grid xs={12} >
                     <Typography
+                        variant="h6"
+                        sx={{
+                            flexGrow: 1,
+                            my: 1,
+                            ml: 2,
+                            color: 'black',
+                            fontWeight: 'bold'
+                            }}
+                        >
+                        Product Description
+                    </Typography>
+                  </Grid>
+                  <Grid xs={12} >
+                    <Typography
+                          variant="h9"
+                          sx={{
+                              flexGrow: 1,
+                              my: 1,
+                              ml: 2,
+                              color: 'black',
+                              }}
+                          >
+                          SAFETY JOGGER SHOE DAKAR
+                      </Typography>
+                  </Grid>
+                  <Grid xs={12} >
+                    <Typography
+                          variant="h9"
+                          sx={{
+                              flexGrow: 1,
+                              my: 1,
+                              ml: 2,
+                              color: 'black',
+                              }}
+                          >
+                          Shoe size in UK ( UK-6 UK-7 UK-8 UK-9 UK-10 )
+                      </Typography>
+                  </Grid>
+                  <Grid xs={12} >
+                    <Typography
+                          variant="h9"
+                          sx={{
+                              flexGrow: 1,
+                              my: 1,
+                              ml: 2,
+                              color: 'black',
+                              }}
+                          >
+                          Color : brown
+                      </Typography>
+                  </Grid>
+                  <Grid xs={12} >
+                    <Typography
+                          variant="h9"
+                          sx={{
+                              flexGrow: 1,
+                              my: 1,
+                              ml: 2,
+                              color: 'black',
+                              }}
+                          >
+                          Mid cut.
+                      </Typography>
+                  </Grid>
+                </Grid>
+
+            </div>
+        </Grid>
+          <Grid xs={6} container>
+          <div  style={{ width:"50%",height:"50%", backgroundColor: 'White'}} sx={{ display: { mr: 2 } }}>
+                <Typography
                     variant="h6"
                     sx={{
                         flexGrow: 1,
                         my: 1,
                         ml: 2,
-                        color: 'black',
+                        color: 'blue',
+                        fontWeight: 'bold',
                         }}
                     >
-                     
+                        <sup>S$</sup> 85.00
                 </Typography>
+                <hr></hr>
+                <Grid sx={{my: 2}} container>
+                        <Grid xs={3}>
+                        <Typography
+                            variant="h6"
+                            sx={{
+                                flexGrow: 1,
+                                my: 1,
+                                ml: 2,
+                                color: 'black',
+                                }}
+                            >
+                                Quantity
+                        </Typography>
+                        </Grid>
+                        <Grid container xs={9} sx={{ display: { md: 'flex'}}} style={{alignItems: 'center',paddingLeft: '2%'}} style={{width:'100%'}}>
+                        <button disabled={quantity>0?'false':'true'}  >-</button>
+                        {quantity}
+                        <button 
+                          onClick={()=>{
+                            setQuantity(quantity+1)
+                          }}
+                          >
+                            +
+                        </button>
+                        </Grid>
+                </Grid>
+                <Grid sx={{my: 2}} align='center' container>
+                  <Grid xs={12}  >
+                    <Button style={{width:'90%', height:'100%'}} variant="contained">Add to Cart</Button>
+                  </Grid>
+                  <Grid xs={12} >
+                    <Button style={{width:'90%', height:'100%'}} variant="outlined">Add to Favourites</Button>
+                  </Grid>
+                  
+                </Grid>
             </div>
+          </Grid>
         </Grid>
     );
 };
