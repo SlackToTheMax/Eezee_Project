@@ -236,24 +236,33 @@ const ViewProduct = (props) => {
                                 color: 'black',
                                 }}
                             >
-                                Quantity
+                                Quantity: 
                         </Typography>
                         </Grid>
                         <Grid container xs={9} sx={{ display: { md: 'flex'}}} style={{alignItems: 'center',paddingLeft: '2%'}} >
-                        {quantity <= 0 ? <button disabled={quantity>0?'false':'true'} >-</button> 
+                        {quantity <= 0 ? <button style={{border:'solid 1px black', height:'70%', width:'15%'}} disabled={quantity>0?'false':'true'} >-</button> 
                           :
                            <button onClick={()=>{
                             setQuantity(quantity-1)
                             props.updateCartItems(false)
-                          }}  >-</button>}
+                          }} style={{border:'solid 1px black', height:'70%', width:'15%'}} >-</button>}
 
-                        {quantity}
+                        <Typography
+                            variant="h6"
+                            sx={{
+                                my: 1,
+                                color: 'black',
+                                }}
+                            style={{border:'solid 1px black', height: '65%', width:'50%',textAlign:'center'}}
+                            >
+                                {quantity}
+                        </Typography>
 
                         <button 
                           onClick={()=>{
                             setQuantity(quantity+1)
                             props.updateCartItems(true)
-                          }}
+                          }} style={{border:'solid 1px black', height:'70%', width:'15%'}}
                           >
                             +
                         </button>
