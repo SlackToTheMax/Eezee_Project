@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -11,12 +11,22 @@ import safetyLogo from "../images/safety_logo.png";
 import shoe1 from "../images/shoe_product/shoe_1.png";
 import shoe2 from "../images/shoe_product/shoe_2.png";
 import shoe3 from "../images/shoe_product/shoe_3.png";
-import { fontWeight } from "@mui/system";
+
 
 const ViewProduct = (props) => {
 
     const productShoe = [shoe1,shoe2,shoe3]
     const [quantity, setQuantity] = useState(0)
+
+    const updateCartItems = (increment) => {
+      props.updateCartItems(increment);
+    }
+
+    useEffect(() => {
+      // Update the document title using the browser API
+      setQuantity(props.cartItems)
+    },[]);
+    
 
     const responsive = {
         desktop: {
@@ -230,11 +240,19 @@ const ViewProduct = (props) => {
                         </Typography>
                         </Grid>
                         <Grid container xs={9} sx={{ display: { md: 'flex'}}} style={{alignItems: 'center',paddingLeft: '2%'}} >
-                        <button disabled={quantity>0?'false':'true'}  >-</button>
+                        {quantity <= 0 ? <button disabled={quantity>0?'false':'true'} >-</button> 
+                          :
+                           <button onClick={()=>{
+                            setQuantity(quantity-1)
+                            props.updateCartItems(false)
+                          }}  >-</button>}
+
                         {quantity}
+
                         <button 
                           onClick={()=>{
                             setQuantity(quantity+1)
+                            props.updateCartItems(true)
                           }}
                           >
                             +

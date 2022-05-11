@@ -3,19 +3,30 @@ import React, { useState} from "react";
 
 
 import { Navbar } from "./navbar";
-import { CarouselWidget } from "./carouselWidget"
-import { FeaturedBrands } from "./featuredBrands"
-import { PopularProducts } from "./popularProducts"
+import { Main } from "./main"
 import { ViewProduct } from "../product/productPage"
+
+import { BrowserRouter, Route, Routes  } from "react-router-dom";
 
 
 const Mainpage = (props) => {
 
+
+    const [cartItems, setCartItems] = useState(0)
+
+    const updateCartItems = (increment) => {
+
+        if(increment == true){
+            setCartItems(cartItems+1)
+        }else{
+            setCartItems(cartItems-1)
+        }
+    }
     
     return (
         <div className='wrapper' >
             <div className="App-Dash">
-                <Navbar  />
+                <Navbar cartItems={cartItems} />
             </div>
             <div style={{backgroundColor:"#f0f0f0",
                             minHeight: "100vh",
@@ -23,18 +34,12 @@ const Mainpage = (props) => {
                             paddingLeft: "5%",
                             paddingTop: "3%"
                         }}>
-                <div>
-                    <CarouselWidget />
-                </div>
-                <div>
-                    <FeaturedBrands />
-                </div>
-                <div>
-                    <PopularProducts />
-                </div>
-                <div>
-                    <ViewProduct />
-                </div>
+            <BrowserRouter>
+                <Routes>
+                    <Route path='/' element={<Main />} />
+                    <Route path='/shoes' element={ <ViewProduct updateCartItems={updateCartItems} cartItems={cartItems} /> } />
+                </Routes >
+            </BrowserRouter>
             </div>
         </div>
     );

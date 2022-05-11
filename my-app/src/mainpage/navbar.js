@@ -190,7 +190,7 @@ const Navbar = (props) => {
                         </Typography>
                     </Grid>
                     <Grid item xs={1}>
-                        <Badge badgeContent={4} color="primary">
+                        <Badge badgeContent={props.cartItems} color="primary">
                             <ShoppingCartOutlinedIcon color="disabled" style={{width:50,height:60}} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
                         </Badge>
                         
