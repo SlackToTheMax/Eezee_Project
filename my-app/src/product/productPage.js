@@ -229,7 +229,7 @@ const ViewProduct = (props) => {
                                 Quantity
                         </Typography>
                         </Grid>
-                        <Grid container xs={9} sx={{ display: { md: 'flex'}}} style={{alignItems: 'center',paddingLeft: '2%'}} style={{width:'100%'}}>
+                        <Grid container xs={9} sx={{ display: { md: 'flex'}}} style={{alignItems: 'center',paddingLeft: '2%'}} >
                         <button disabled={quantity>0?'false':'true'}  >-</button>
                         {quantity}
                         <button 
